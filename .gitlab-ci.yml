@@ -1,5 +1,5 @@
 build:system_studio:
-  image: ubuntu
+  image: ubuntu:xenial
   before_script:
     - apt-get update -qq
     # Installer needs wget, cpio, sample program needs cmake, icc needs g++
