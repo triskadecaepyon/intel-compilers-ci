@@ -30,7 +30,7 @@ else
     ext=tgz
 fi
 
-#wget $url/$installer.$ext
-#tar zxf $installer.$ext
+wget $url/$installer.$ext
+tar zxf $installer.$ext
 sed -e "s/IS_SERIAL_NUMBER/$serial_number/" < intel-compilers/$installer.tpl > $installer.cfg
 $installer/install.sh --silent $installer.cfg
