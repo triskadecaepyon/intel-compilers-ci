@@ -2,8 +2,8 @@ build:system_studio:
   image: ubuntu
   before_script:
     - apt-get update -qq
-    # Installer needs cpio, sample program needs cmake
-    - apt-get install -qq -y cpio cmake
+    # Installer needs wget, cpio, sample program needs cmake
+    - apt-get install -qq -y cmake cpio wget
     - IC_LICENSE_TYPE=SS ./intel-compilers/install-linux.sh
 
   script:
@@ -18,8 +18,8 @@ build:parallel_studio_xe:
   image: ubuntu
   before_script:
     - apt-get update -qq
-    # Installer needs cpio, sample program needs cmake
-    - apt-get install -qq -y cpio cmake
+    # Installer needs wget, cpio, sample program needs cmake
+    - apt-get install -qq -y cmake cpio wget
     - IC_LICENSE_TYPE=PSXE ./intel-compilers/install-linux.sh
 
   script:
@@ -34,8 +34,8 @@ build:parallel_studio_xe_fortrann:
   image: ubuntu
   before_script:
     - apt-get update -qq
-    # Installer needs cpio, sample program needs cmake
-    - apt-get install -qq -y cpio cmake
+    # Installer needs wget, cpio, sample program needs cmake
+    - apt-get install -qq -y cmake cpio wget
     - IC_LICENSE_TYPE=PSXE_FORTRAN ./intel-compilers/install-linux.sh
 
   script:

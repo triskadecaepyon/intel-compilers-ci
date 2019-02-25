@@ -75,6 +75,10 @@ Setting the environment variable:
 
 ### Gitlab CI/CD
 
+Status: [![Build Status](https://gitlab.com/rscohn2/intel-compilers-ci/badges/master/build.svg)](https://gitlab.com/rscohn2/intel-compilers-ci/-/jobs)
+
+Setting the environment variable: [instructions](https://docs.gitlab.com/ee/ci/variables/#protected-variables)
+
 ### Appveyor
 
 ### Azure Pipelines
