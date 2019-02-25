@@ -25,7 +25,7 @@ COMPONENTS=intel-icc__x86_64;intel-ifort__x86_64
 PSET_MODE=install
 
 # Serial number, valid values are: {snpat}
-ACTIVATION_SERIAL_NUMBER=IS_SERIAL_NUMBER
+ACTIVATION_SERIAL_NUMBER=SERIAL_NUMBER
 
 # License file or license server, valid values are: {lspat, filepat}
 #ACTIVATION_LICENSE_FILE=

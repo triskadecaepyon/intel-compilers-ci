@@ -25,7 +25,7 @@ COMPONENTS=intel-icc-64bit-meta-linux-2019.2-192__noarch
 PSET_MODE=install
 
 # Serial number, valid values are: {snpat}
-ACTIVATION_SERIAL_NUMBER=IS_SERIAL_NUMBER
+ACTIVATION_SERIAL_NUMBER=SERIAL_NUMBER
 
 # License file or license server, valid values are: {lspat, filepat}
 #ACTIVATION_LICENSE_FILE=
