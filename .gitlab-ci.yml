@@ -1,5 +1,5 @@
 build:system_studio:
-  image: precise
+  image: ubuntu
   before_script:
     - sudo apt-get update -qq
     # Installer needs cpio, sample program needs cmake
@@ -16,7 +16,7 @@ build:system_studio:
     - make test
 
 build:parallel_studio_xe:
-  image: precise
+  image: ubuntu
   before_script:
     - sudo apt-get update -qq
     # Installer needs cpio, sample program needs cmake
@@ -33,7 +33,7 @@ build:parallel_studio_xe:
     - make test
 
 build:parallel_studio_xe_fortrann:
-  image: precise
+  image: ubuntu
   before_script:
     - sudo apt-get update -qq
     # Installer needs cpio, sample program needs cmake
