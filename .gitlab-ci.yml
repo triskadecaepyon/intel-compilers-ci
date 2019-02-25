@@ -1,11 +1,10 @@
 build:system_studio:
   image: ubuntu
   before_script:
-    - sudo apt-get update -qq
+    - apt-get update -qq
     # Installer needs cpio, sample program needs cmake
-    - sudo apt-get install -qq -y cpio cmake
-    - IC_LICENSE_TYPE=SS
-    - sudo ./intel-compilers/install-linux.sh
+    - apt-get install -qq -y cpio cmake
+    - IC_LICENSE_TYPE=SS ./intel-compilers/install-linux.sh
 
   script:
     - source /opt/intel/bin/iccvars.sh -arch intel64
@@ -18,11 +17,10 @@ build:system_studio:
 build:parallel_studio_xe:
   image: ubuntu
   before_script:
-    - sudo apt-get update -qq
+    - apt-get update -qq
     # Installer needs cpio, sample program needs cmake
-    - sudo apt-get install -qq -y cpio cmake
-    - IC_LICENSE_TYPE=PSXE
-    - sudo ./intel-compilers/install-linux.sh
+    - apt-get install -qq -y cpio cmake
+    - IC_LICENSE_TYPE=PSXE ./intel-compilers/install-linux.sh
 
   script:
     - source /opt/intel/bin/iccvars.sh -arch intel64
@@ -35,11 +33,10 @@ build:parallel_studio_xe:
 build:parallel_studio_xe_fortrann:
   image: ubuntu
   before_script:
-    - sudo apt-get update -qq
+    - apt-get update -qq
     # Installer needs cpio, sample program needs cmake
-    - sudo apt-get install -qq -y cpio cmake
-    - IC_LICENSE_TYPE=PSXE_FORTRAN
-    - sudo ./intel-compilers/install-linux.sh
+    - apt-get install -qq -y cpio cmake
+    - IC_LICENSE_TYPE=PSXE_FORTRAN ./intel-compilers/install-linux.sh
 
   script:
     - source /opt/intel/bin/iccvars.sh -arch intel64
