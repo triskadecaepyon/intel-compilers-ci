@@ -73,6 +73,11 @@ Setting the environment variable:
 
 ### CircleCI
 
+Status: [![CircleCI](https://circleci.com/gh/anoopmad/intel-compilers-ci.svg?style=svg)](https://circleci.com/gh/anoopmad/intel-compilers-ci)
+
+Setting the environment variable:
+[Instructions](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project)
+
 ### Gitlab CI/CD
 
 Status: [![Build Status](https://gitlab.com/rscohn2/intel-compilers-ci/badges/master/build.svg)](https://gitlab.com/rscohn2/intel-compilers-ci/-/jobs)

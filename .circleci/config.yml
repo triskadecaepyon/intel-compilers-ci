@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+
+    steps:
+      - checkout
+
+      - run:
+          name: Update Repo Information
+          command: apt-get update -qq
+
+      - run:
+          name: Install Cmake
+          command: apt-get install -qq -y cpio cmake
+
+      - run:
+          name: Install ICC
+          command: ./intel-compilers/install-linux.sh
+
+      - run:
+          name: Build and Test Project
+          command: source /opt/intel/bin/iccvars.sh -arch intel64 && 
+                   icc -v && 
+                   mkdir build; cd build && 
+                   FC=ifort CC=icc CXX=icpc cmake ../src && 
+                   make && 
+                   make test
