@@ -1,4 +1,4 @@
-#! /bin/sh -x
+#! /bin/sh
 
 if [ "${IS_LICENSE_TYPE}" = ISS ]; then
     url=http://registrationcenter-download.intel.com/akdlm/irc_nas/emb/15167
@@ -30,7 +30,7 @@ else
     ext=tgz
 fi
 
-wget $url/$installer.$ext
+wget -q $url/$installer.$ext
 tar zxf $installer.$ext
 sed -e "s/IS_SERIAL_NUMBER/$serial_number/" < intel-compilers/$installer.tpl > $installer.cfg
 $installer/install.sh --silent $installer.cfg
