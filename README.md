@@ -14,7 +14,13 @@ This repo contains:
 * sample project to build
 
 You can get started by cloning this repository and adding your project
-to it, or by copying the intel-compilers directory into your repo.
+to it, or by copying the intel-compilers directory into your repo. If
+you don't want to include the files in your repo, just add this to
+your CI config:
+
+        wget https://github.com/rscohn2/intel-compilers-ci/archive/master.zip
+	unzip master.zip
+	mv intel-compilers-ci-master/intel-compilers .
 
 The linux installer is in intel-compilers/install-linux.sh. Before
 invoking the installer, you must tell it which type of license you
