@@ -5,7 +5,7 @@ before_install:
   - sudo apt-get update -qq
   # Installer needs cpio, sample program needs cmake
   - sudo apt-get install -qq -y cpio cmake
-  - sudo .intel-compilers/install-linux.sh
+  - sudo ./intel-compilers/install-linux.sh
 
 script:
   - source /opt/intel/bin/iccvars.sh -arch intel64
