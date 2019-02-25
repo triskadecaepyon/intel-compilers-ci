@@ -32,5 +32,5 @@ fi
 
 wget -q $url/$installer.$ext
 tar zxf $installer.$ext
-sed -e "s/SERIAL_NUMBER/$serial_number/" < intel-compilers/$installer.tpl > $installer.cfg
+sed -e "s/IC_SERIAL_NUMBER/$serial_number/" < intel-compilers/$installer.tpl > $installer.cfg
 $installer/install.sh --silent $installer.cfg

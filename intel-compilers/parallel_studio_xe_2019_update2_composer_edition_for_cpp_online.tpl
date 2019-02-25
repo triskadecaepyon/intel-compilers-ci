@@ -1,5 +1,5 @@
 # Patterns used to check silent configuration file
-nnnn#
+#
 # anythingpat - any string
 # filepat     - the file location pattern (/file/location/to/license.lic)
 # lspat       - the license server address pattern (0123@hostname)
@@ -25,7 +25,7 @@ COMPONENTS=intel-icc__x86_64
 PSET_MODE=install
 
 # Serial number, valid values are: {snpat}
-ACTIVATION_SERIAL_NUMBER=SERIAL_NUMBER
+ACTIVATION_SERIAL_NUMBER=IC_SERIAL_NUMBER
 
 # License file or license server, valid values are: {lspat, filepat}
 #ACTIVATION_LICENSE_FILE=
