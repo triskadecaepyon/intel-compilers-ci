@@ -1,0 +1,50 @@
+build:system_studio:
+  image: precise
+  before_script:
+    - sudo apt-get update -qq
+    # Installer needs cpio, sample program needs cmake
+    - sudo apt-get install -qq -y cpio cmake
+    - IC_LICENSE_TYPE=SS
+    - sudo ./intel-compilers/install-linux.sh
+
+  script:
+    - source /opt/intel/bin/iccvars.sh -arch intel64
+    - icc -v
+    - mkdir build; cd build
+    - CC=icc CXX=icpc cmake ../src/c-example
+    - make
+    - make test
+
+build:parallel_studio_xe:
+  image: precise
+  before_script:
+    - sudo apt-get update -qq
+    # Installer needs cpio, sample program needs cmake
+    - sudo apt-get install -qq -y cpio cmake
+    - IC_LICENSE_TYPE=PSXE
+    - sudo ./intel-compilers/install-linux.sh
+
+  script:
+    - source /opt/intel/bin/iccvars.sh -arch intel64
+    - icc -v
+    - mkdir build; cd build
+    - CC=icc CXX=icpc cmake ../src/c-example
+    - make
+    - make test
+
+build:parallel_studio_xe_fortrann:
+  image: precise
+  before_script:
+    - sudo apt-get update -qq
+    # Installer needs cpio, sample program needs cmake
+    - sudo apt-get install -qq -y cpio cmake
+    - IC_LICENSE_TYPE=PSXE_FORTRAN
+    - sudo ./intel-compilers/install-linux.sh
+
+  script:
+    - source /opt/intel/bin/iccvars.sh -arch intel64
+    - icc -v
+    - mkdir build; cd build
+    - CC=icc CXX=icpc cmake ../src
+    - make
+    - make test
