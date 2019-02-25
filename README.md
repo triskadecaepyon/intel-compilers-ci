@@ -1,29 +1,51 @@
 # intel-compilers-ci
 Sample CI configurations for using intel compilers
 
+By offering both C++ & Fortran compilers for Windows, Linux, and
+MacOS, intel compilers makes it easy to test your software in
+cloud-based CI systems.
+
 ## How it works
 
-This is a minimal wrapper for the parallel studio installer in silent
-mode, which can be invoked from the command line without user
-interaction.
+This repo contains:
 
-For each OS, there is a configuration file and a script. The script is
-called from the CI configuration (e.g. .travis.yml) and uses the
-configuration file to drive the install.
+* a small wrapper for Intel C++ & Fortran installers for easy integration intel CI scripts.
+* sample scripts for popular CI systems
+* sample project to build
 
-To use the script, you must have a license to use Intel Parallel
-Studio XE Composer Edition. The script requires that you set the
-ACTIVATION_SERIAL_NUMBER environment variable equal to the serial
-number. We recommend that you set the variable in the web interface to
-the CI system. If you put it directly in the config file, then others
-will be able to see your serial number, and it will be less convenient
-for others to clone your repository and use their own serial number.
+You can get started by cloning this repository and adding your project
+to it, or by copying the intel-compilers directory into your repo.
 
-## Compiler versions
+The linux installer is in intel-compilers/install-linux.sh. Before
+invoking the installer, you must tell it which type of license you
+have and the serial number.
 
-This repo has branches for each Parallel Studio releases of Intel compilers 
+If you do not know your serial number, you can find it at the [Intel
+Registration Center](https://registrationcenter.intel.com/en/products). If you need
+a license, see below for free options for obtaining a license.
+
+If you have a license for Parallel Studio XE, you may install C++ & Fortran with:
+
+        IS_LICENSE_TYPE=PSXE_FORTRAN IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY ./intel-compilers/install-linux.sh
+
+If you only need C++, then use:
+
+        IS_LICENSE_TYPE=PSXE IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY ./intel-compilers/install-linux.sh
+
+If you have a license for Intel System Studio, then use:
+
+        IS_LICENSE_TYPE=ISS IS_ISS_SERIAL_NUMBER=XXXX-YYYYYYYY ./intel-compilers/install-linux.sh
+
+When setting up a CI system, we recommend that you do not put the
+environment variables in the CI script or anywhere in your source code
+repo, but instead use the CI settings. See the CI system-specific
+directions below. By using CI settings, someone can clone your repo
+and use their own license without modifying the files.
 
 ## Sample project
+
+We include a sample project based on [Cmake](https://cmake.org/) to
+build with the C++ and Fortran compilers:
 
         # Build
         mkdir build
@@ -50,3 +72,9 @@ Setting the environment variable:
 ### Appveyor
 
 ### Azure Pipelines
+
+## Getting a License
+
+If you do not already have a license for the intel compilers, there
+are several options, some of which are low cost or free. Please look at [Intel
+System Studio License](https://software.intel.com/en-us/system-studio/choose-download) and [Intel Parallel Studio XE](https://software.intel.com/en-us/parallel-studio-xe/choose-download)
