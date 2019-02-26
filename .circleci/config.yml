@@ -13,7 +13,7 @@ jobs:
 
       - run:
           name: Install Cmake
-          command: apt-get install -qq -y cpio cmake wget libc6-dev
+          command: apt-get install -qq -y cpio cmake wget g++-multilib
 
       - run:
           name: Install ICC
