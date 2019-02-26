@@ -23,7 +23,7 @@ jobs:
           name: Build and Test Project
           command: source /opt/intel/bin/iccvars.sh -arch intel64 && 
                    icc -v && 
-                   mkdir build; cd build && 
+                   mkdir build && cd build && 
                    FC=ifort CC=icc CXX=icpc cmake ../src && 
                    make && 
                    make test
