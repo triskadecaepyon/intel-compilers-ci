@@ -17,8 +17,8 @@ steps:
 - script: sudo ./intel-compilers/install-linux.sh
   displayName: 'Install compilers and license'
   env:
-    IS_PSXE_SERIAL_NUMBER: $(activation.serial.number)
-    IS_LICENSE_TYPE: $(is.license.type)
+    IC_PSXE_SERIAL_NUMBER: $(activation.serial.number)
+    IC_LICENSE_TYPE: $(ic.license.type)
 
 - script: |
      source ~/opt/intel/bin/iccvars.sh -arch intel64 &&
