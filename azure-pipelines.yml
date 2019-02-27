@@ -14,7 +14,9 @@ steps:
 - script: sudo apt-get install -qq -y cpio cmake
   displayName: 'Install cpio and cmake'
 
-- script: sudo ./intel-compilers/install-linux.sh
+- script: |
+    printenv
+    sudo ./intel-compilers/install-linux.sh
   displayName: 'Install compilers and license'
   env:
     IC_PSXE_SERIAL_NUMBER: $(activation.serial.number)
