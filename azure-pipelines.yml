@@ -1,0 +1,30 @@
+# Test Pipeline for Azure Pipelines
+# Template for Linux
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- script: sudo apt-get update -qq
+  displayName: 'Preinstall cleanup'
+
+- script:  sudo apt-get install -qq -y cpio cmake
+  displayName: 'Install cpio and cmake'
+
+- script: - sudo ./intel-compilers/install-linux.sh
+  displayName: 'Install compilers and license'
+  env:
+    IS_PSXE_SERIAL_NUMBER: $(activation.serial.number)
+    IS_LICENSE_TYPE: $(is.license.type)
+
+- script: |
+     source ~/opt/intel/bin/iccvars.sh -arch intel64 &&
+     icc -v &&
+     mkdir build; cd build &&
+     FC=ifort CC=icc CXX=icpc cmake ../src &&
+     make &&
+     make test
+  displayName: 'Attempt compile'
