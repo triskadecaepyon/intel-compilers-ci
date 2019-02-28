@@ -1,5 +1,6 @@
 #! /bin/sh
 
+echo $IC_LICENSE_TYPE
 if [ "${IC_LICENSE_TYPE}" = SS ]; then
     url=http://registrationcenter-download.intel.com/akdlm/irc_nas/emb/15167
     installer=system_studio_2019_update_2_ultimate_edition
