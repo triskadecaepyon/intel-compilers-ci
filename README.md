@@ -122,5 +122,3 @@ Setting the environment variable: [instructions](https://www.appveyor.com/docs/b
 
 ### Azure Pipelines
 
-## Getting a License
-
