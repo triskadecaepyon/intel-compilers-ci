@@ -19,8 +19,8 @@ you don't want to include the files in your repo, just add this to
 your CI config:
 
         wget https://github.com/rscohn2/intel-compilers-ci/archive/master.zip
-	unzip master.zip
-	mv intel-compilers-ci-master/intel-compilers .
+        unzip master.zip
+        mv intel-compilers-ci-master/intel-compilers .
 
 The linux installer is in intel-compilers/install-linux.sh. Before
 invoking the installer, you must tell it which type of license you
@@ -72,6 +72,11 @@ Setting the environment variable:
 [Instructions](https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings)
 
 ### CircleCI
+
+Status: [![CircleCI](https://circleci.com/gh/rscohn2/intel-compilers-ci.svg?style=svg)](https://circleci.com/gh/anoopmad/intel-compilers-ci)
+
+Setting the environment variable:
+[Instructions](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project)
 
 ### Gitlab CI/CD
 
