@@ -1,8 +1,7 @@
 # intel-compilers-ci
 Sample CI configurations for using intel compilers
 
-By offering both C++ & Fortran compilers for Windows, Linux, and
-MacOS, intel compilers makes it easy to test your software in
+Instructions and scripts for using Intel C++ and Fortran in
 cloud-based CI systems.
 
 ## How it works
@@ -13,8 +12,8 @@ This repo contains:
 * sample scripts for popular CI systems
 * sample project to build
 
-Setting up your project has 4 steps:
-
+You can be up and running in 10 minutes! Setting up your project has 4
+steps:
 
 1. [Add the intel-compilers directory to the top level of your project](#add_directory)
 2. [Add a few lines to your CI config file to install the compiler](#config_file)
@@ -33,7 +32,7 @@ this to your CI config to copy it at install time:
         unzip master.zip
         mv intel-compilers-ci-master/intel-compilers .
 
-### Add a few lines to your CI config file to install the compiler <a name="add_directory">
+### Add a few lines to your CI config file to install the compiler <a name="config_file">
 
 We have examples for many CI systems in this repo.
 
@@ -42,10 +41,15 @@ We have examples for many CI systems in this repo.
 You need a license to the use the compiler. The installer uses
 your serial number to fetch a license file.
 
-If you do not already have a license for intel compilers, there
-are several options, some of which are low cost or free. Please look
-at [Intel Parallel Studio
-XE](https://software.intel.com/en-us/parallel-studio-xe/choose-download)
+If you do not already have a license for intel compilers, there are
+several options, some of which are low cost or free. Please look at
+[Intel Parallel Studio
+XE](https://software.intel.com/en-us/parallel-studio-xe/choose-download). If
+you are looking at this repo, you are probably an open source
+developer. Open source contributors can qualify for a [free license](
+https://software.intel.com/en-us/qualify-for-free-software/opensourcecontributor)
+for Linux!  Whatever option you choose, you can start immediately with
+a free 30 day license.
 
 You will need your serial number in the next step. If you do not know
 your serial number, you can find it at the [Intel Registration
@@ -72,7 +76,7 @@ If you have a license for Parallel Studio XE, you may install C++ & Fortran with
 If you only need C++, then use:
 
         IS_LICENSE_TYPE=PSXE
-	IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY
+        IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY
 
 ## Sample project
 
