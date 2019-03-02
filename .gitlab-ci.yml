@@ -1,25 +1,25 @@
-build:system_studio:
-  image: ubuntu:xenial
-  before_script:
-    - apt-get update -qq
-    # Installer needs wget, cpio, sample program needs cmake, icc needs g++
-    - apt-get install -qq -y cmake cpio g++ wget
-    - IC_LICENSE_TYPE=SS ./intel-compilers/install-linux.sh
+#build:system_studio:
+#  image: ubuntu
+#  before_script:
+#    - apt-get update -qq
+#    # Installer needs wget, cpio, sample program needs cmake, icc needs g++
+#    - apt-get install -qqq -y cmake cpio g++ wget
+#    - IC_LICENSE_TYPE=SS ./intel-compilers/install-linux.sh
 
-  script:
-    - source /opt/intel/bin/iccvars.sh -arch intel64 || true
-    - icc -v
-    - mkdir build; cd build
-    - CC=icc CXX=icpc cmake ../src/c-example
-    - make
-    - make test
+#  script:
+#    - source /opt/intel/bin/iccvars.sh -arch intel64 || true
+#    - icc -v
+#    - mkdir build; cd build
+#    - CC=icc CXX=icpc cmake ../src/c-example
+#    - make
+#    - make test
 
 build:parallel_studio_xe:
   image: ubuntu
   before_script:
     - apt-get update -qq
     # Installer needs wget, cpio, sample program needs cmake, icc needs g++
-    - apt-get install -qq -y cmake cpio g++ wget
+    - apt-get install -qqq -y cmake cpio g++ wget
     - IC_LICENSE_TYPE=PSXE ./intel-compilers/install-linux.sh
 
   script:
@@ -35,7 +35,7 @@ build:parallel_studio_xe_fortran:
   before_script:
     - apt-get update -qq
     # Installer needs wget, cpio, sample program needs cmake, icc needs g++
-    - apt-get install -qq -y cmake cpio g++ wget
+    - apt-get install -qqq -y cmake cpio g++ wget
     - IC_LICENSE_TYPE=PSXE_FORTRAN ./intel-compilers/install-linux.sh
 
   script:
