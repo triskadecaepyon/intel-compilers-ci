@@ -9,44 +9,70 @@ cloud-based CI systems.
 
 This repo contains:
 
-* a small wrapper for Intel C++ & Fortran installers for easy integration intel CI scripts.
+* a small shell script that downloads and installs Intel C++ & Fortran compilers for easy integration into CI scripts.
 * sample scripts for popular CI systems
 * sample project to build
 
-You can get started by cloning this repository and adding your project
-to it, or by copying the intel-compilers directory into your repo. If
-you don't want to include the files in your repo, just add this to
-your CI config:
+Setting up your project has 4 steps:
+
+
+1. [Add the intel-compilers directory to the top level of your project](#add_directory)
+2. [Add a few lines to your CI config file to install the compiler](#config_file)
+3. [Obtain a license to use intel compilers](#get_license)
+4. [Set some environment variables in the CI settings so the installer can get your license](#environment)
+
+If you want to try it out quickly, you can clone this repo and skip steps 1 & 2.
+
+### Add intel-compilers directory to your project <a name="add_directory">
+
+Clone this repo and copy the intel-compilers directory into your
+repo. If you don't want to include the files in your repo, just add
+this to your CI config to copy it at install time:
 
         wget https://github.com/rscohn2/intel-compilers-ci/archive/master.zip
         unzip master.zip
         mv intel-compilers-ci-master/intel-compilers .
 
-The linux installer is in intel-compilers/install-linux.sh. Before
-invoking the installer, you must tell it which type of license you
-have and the serial number.
+### Add a few lines to your CI config file to install the compiler <a name="add_directory">
 
-If you do not know your serial number, you can find it at the [Intel
-Registration Center](https://registrationcenter.intel.com/en/products). If you need
-a license, see below for free options for obtaining a license.
+We have examples for many CI systems in this repo.
+
+### Obtain a serial number to use intel compilers <a name="get_license">
+
+You need a license to the use the compiler. The installer uses
+your serial number to fetch a license file.
+
+If you do not already have a license for intel compilers, there
+are several options, some of which are low cost or free. Please look
+at [Intel Parallel Studio
+XE](https://software.intel.com/en-us/parallel-studio-xe/choose-download)
+
+You will need your serial number in the next step. If you do not know
+your serial number, you can find it at the [Intel Registration
+Center](https://registrationcenter.intel.com/en/products).  Treat this
+serial number like a password. Do not put it in your repo!
+
+### Set some environment variables in the CI settings so the installer can get your license <a name="environment">
+
+The installer uses environment variables to find your serial
+number. All the CI systems let you set environment variables in the
+settings of the web interface. The settings are specific to your
+project on the CI system and not visible to other users. See [CI
+systems](#CI_systems) for specific directions.
+
+We do not recommend setting the environment variables in the CI script or anywhere
+in your source code. By using CI settings, someone can clone your repo
+and use their own license without modifying the files.
 
 If you have a license for Parallel Studio XE, you may install C++ & Fortran with:
 
-        IS_LICENSE_TYPE=PSXE_FORTRAN IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY ./intel-compilers/install-linux.sh
+        IS_LICENSE_TYPE=PSXE_FORTRAN
+	IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY
 
 If you only need C++, then use:
 
-        IS_LICENSE_TYPE=PSXE IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY ./intel-compilers/install-linux.sh
-
-If you have a license for Intel System Studio, then use:
-
-        IS_LICENSE_TYPE=ISS IS_ISS_SERIAL_NUMBER=XXXX-YYYYYYYY ./intel-compilers/install-linux.sh
-
-When setting up a CI system, we recommend that you do not put the
-environment variables in the CI script or anywhere in your source code
-repo, but instead use the CI settings. See the CI system-specific
-directions below. By using CI settings, someone can clone your repo
-and use their own license without modifying the files.
+        IS_LICENSE_TYPE=PSXE
+	IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY
 
 ## Sample project
 
@@ -62,7 +88,7 @@ build with the C++ and Fortran compilers:
         # Test
         make test
 
-## CI systems
+## CI systems <a name="CI_systems">
 
 ### TravisCI
 
@@ -73,7 +99,7 @@ Setting the environment variable:
 
 ### CircleCI
 
-Status: [![CircleCI](https://circleci.com/gh/rscohn2/intel-compilers-ci.svg?style=svg)](https://circleci.com/gh/anoopmad/intel-compilers-ci)
+Status: [![CircleCI](https://circleci.com/gh/rscohn2/intel-compilers-ci.svg?style=svg)](https://circleci.com/gh/rscohn2/intel-compilers-ci)
 
 Setting the environment variable:
 [Instructions](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project)
@@ -90,6 +116,3 @@ Setting the environment variable: [instructions](https://docs.gitlab.com/ee/ci/v
 
 ## Getting a License
 
-If you do not already have a license for the intel compilers, there
-are several options, some of which are low cost or free. Please look at [Intel
-System Studio License](https://software.intel.com/en-us/system-studio/choose-download) and [Intel Parallel Studio XE](https://software.intel.com/en-us/parallel-studio-xe/choose-download)
