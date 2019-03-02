@@ -71,7 +71,7 @@ and use their own license without modifying the files.
 If you have a license for Parallel Studio XE, you may install C++ & Fortran with:
 
         IS_LICENSE_TYPE=PSXE_FORTRAN
-	IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY
+        IS_PSXE_SERIAL_NUMBER=XXXX-YYYYYYYY
 
 If you only need C++, then use:
 
@@ -115,6 +115,10 @@ Status: [![Build Status](https://gitlab.com/rscohn2/intel-compilers-ci/badges/ma
 Setting the environment variable: [instructions](https://docs.gitlab.com/ee/ci/variables/#protected-variables)
 
 ### Appveyor
+
+Status: [![Build status](https://ci.appveyor.com/api/projects/status/lhhe8c5xho1ra7kx?svg=true)](https://ci.appveyor.com/project/rscohn2/intel-compilers-ci)
+
+Setting the environment variable: [instructions](https://www.appveyor.com/docs/build-configuration/#custom-environment-variables)
 
 ### Azure Pipelines
 
