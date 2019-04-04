@@ -1,7 +1,8 @@
 *~
 build
-serial.txt
 parallel_studio*
 system_studio*
 x.patch
 x.diff
+*.lic
+

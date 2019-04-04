@@ -4,8 +4,8 @@ sudo: required
 before_install:
   - sudo apt-get update -qq
   # Installer needs cpio, sample program needs cmake
-  - sudo apt-get install -qq -y cpio cmake
-  - sudo ./intel-compilers/install-linux.sh
+  - sudo apt-get install -qq -y cpio cmake openssl wget
+  - sudo ./is-installers/linux/is-install.sh
 
 script:
   - source /opt/intel/bin/iccvars.sh -arch intel64
