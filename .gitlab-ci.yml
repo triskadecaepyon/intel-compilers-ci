@@ -19,8 +19,8 @@ build:parallel_studio_xe:
   before_script:
     - apt-get update -qq
     # Installer needs wget, cpio, sample program needs cmake, icc needs g++
-    - apt-get install -qqq -y cmake cpio g++ wget
-    - IC_LICENSE_TYPE=PSXE ./intel-compilers/install-linux.sh
+    - apt-get install -qqq -y cmake cpio g++ openssl wget
+    - ./is-installers/linux/is-install.sh
 
   script:
     - source /opt/intel/bin/iccvars.sh -arch intel64 || true
@@ -30,18 +30,3 @@ build:parallel_studio_xe:
     - make
     - make test
 
-build:parallel_studio_xe_fortran:
-  image: ubuntu
-  before_script:
-    - apt-get update -qq
-    # Installer needs wget, cpio, sample program needs cmake, icc needs g++
-    - apt-get install -qqq -y cmake cpio g++ wget
-    - IC_LICENSE_TYPE=PSXE_FORTRAN ./intel-compilers/install-linux.sh
-
-  script:
-    - source /opt/intel/bin/iccvars.sh -arch intel64 || true
-    - icc -v
-    - mkdir build; cd build
-    - CC=icc CXX=icpc cmake ../src
-    - make
-    - make test

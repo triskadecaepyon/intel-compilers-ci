@@ -13,11 +13,11 @@ jobs:
 
       - run:
           name: Install Cmake
-          command: apt-get install -qq -y cpio cmake wget g++-multilib
+          command: apt-get install -qq -y cpio cmake g++-multilib openssl wget
 
       - run:
           name: Install ICC
-          command: ./intel-compilers/install-linux.sh
+          command: ./is-installers/linux/is-install.sh
 
       - run:
           name: Build and Test Project
