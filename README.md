@@ -134,7 +134,7 @@ Setting the environment variable:
 
 ### CircleCI
 
-Status: [![CircleCI](https://circleci.com/gh/rscohn2/intel-compilers-ci.svg?style=svg)](https://circleci.com/gh/rscohn2/intel-compilers-ci)
+Status: [![CircleCI](https://circleci.com/gh/rscohn2/intel-compilers-ci/tree/master.svg?style=svg)](https://circleci.com/gh/rscohn2/intel-compilers-ci/tree/master)
 
 Setting the environment variable:
 [Instructions](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project)
@@ -147,7 +147,7 @@ Setting the environment variable: [instructions](https://docs.gitlab.com/ee/ci/v
 
 ### Appveyor
 
-Status: [![Build status](https://ci.appveyor.com/api/projects/status/lhhe8c5xho1ra7kx?svg=true)](https://ci.appveyor.com/project/rscohn2/intel-compilers-ci)
+Status: [![Build status](https://ci.appveyor.com/api/projects/status/lhhe8c5xho1ra7kx/branch/master?svg=true)](https://ci.appveyor.com/project/rscohn2/intel-compilers-ci/branch/master)
 
 Setting the environment variable: [instructions](https://www.appveyor.com/docs/build-configuration/#custom-environment-variables)
 
