@@ -1,15 +1,18 @@
 # intel-compilers-ci
-Sample CI configurations for using intel compilers
 
-Instructions and scripts for using Intel C++ and Fortran in
-cloud-based CI systems.
+Scripts and sample configurations files for using intel compilers with
+cloud-based CI systems including Appveyor, CircleCI, GitLab, & TravisCI.
+
+The script installs the Intel C++ & Fortran compilers on a minimal
+Container/VM, including the license file. The files in this repo can
+be used as a reference for non-interactive install of a compiler.
 
 ## How it works
 
 This repo contains:
 
 * a small shell script that downloads and installs Intel C++ & Fortran compilers for easy integration into CI scripts.
-* sample scripts for popular CI systems
+* sample configuration files for popular CI systems
 * sample project to build
 
 You can be up and running in 10 minutes! Setting up your project has 4
@@ -34,7 +37,7 @@ this to your CI config to copy it at install time:
 
 ### Add a few lines to your CI config file to install the compiler <a name="config_file">
 
-We have examples for many CI systems in this repo.
+We have examples for several CI systems in this repo.
 
 ### Obtain a license to use intel compilers <a name="get_license">
 
@@ -61,7 +64,6 @@ there will be icons for downloading or emailing the license
 file. Treat the license file as a password. Do not put it in your
 publicly visible source repo or post it on the web.
 
-
 ### Set some environment variables in the CI settings so the installer can get your license <a name="environment">
 
 When the CI system starts, we need to install the license file before
@@ -69,7 +71,7 @@ installing the compiler. We do this by putting the contents of the
 license file in an environment variable, and then the install script writes
 the contents of the environment variable to a file.
 
-The environment variable method had 2 benefits.
+Using an environment variable to hold the license file has 2 benefits.
 
 * Other people can fork your repo and use their own license by setting
   the environment variable to their license file.
@@ -88,9 +90,9 @@ You can encode this way:
 Cut and paste the output of this command into an appropriate
 envrionment variable in the CI system.
 
-All the CI systems let you set environment variables in the
-settings of the web interface. The settings are specific to your
-project on the CI system and not visible to other users. See [CI
+All the CI systems let you set environment variables in the settings
+of the web interface. The settings are specific to your project on the
+CI system and not visible to other users. See [CI
 systems](#CI_systems) for specific directions.
 
 Below are the environment variable names:
@@ -113,6 +115,13 @@ build with the C++ and Fortran compilers:
         make
         # Test
         make test
+
+## Compiler versions
+
+The master branch of this repo will install the latest compiler. We
+also have branches for each Compiler release, and [GitHub
+releases](https://github.com/rscohn2/intel-compilers-ci/releases) for
+each branch.
 
 ## CI systems <a name="CI_systems">
 
@@ -142,5 +151,22 @@ Status: [![Build status](https://ci.appveyor.com/api/projects/status/lhhe8c5xho1
 
 Setting the environment variable: [instructions](https://www.appveyor.com/docs/build-configuration/#custom-environment-variables)
 
-### Azure Pipelines
+## Updating for a new compiler release
 
+* Update the installer URL and file names in the install script and
+  the silent.cfg file.
+
+* Push a feature branch to verify that it works. Pull requests may not
+  have access to the license files, depending on the CI system
+  configuration.
+
+* Merge the feature branch
+
+* Make a branch for the compiler release
+
+* In the new branch, edit the README.md so the URL for the build badges use the branch
+  name, instead of master.
+
+* Push a feature branch and verify that it works.
+
+* Merge the feature branch
