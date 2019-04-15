@@ -53,8 +53,7 @@ you are looking at this repo, you are probably an open source
 developer. Open source contributors can qualify for a [free license](
 https://software.intel.com/en-us/qualify-for-free-software/opensourcecontributor)
 for Linux!  Whatever option you choose, you can start immediately with
-a free 30 day license. After your trial license expires, you can
-obtain a new one.
+a free 30 day license. 
 
 You will need your license file in the next step. You can download the
 license file by visiting [Intel Registration
