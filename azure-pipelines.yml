@@ -16,6 +16,8 @@ steps:
 
 - script: sudo --preserve-env ./is-installers/linux/is-install.sh
   displayName: 'Install compilers'
+  env:
+    IS_LICENSE_DATA_LINUX: $(IS_LICENSE_DATA_LINUX)
 
 - script: |
      source ~/opt/intel/bin/iccvars.sh -arch intel64 &&
