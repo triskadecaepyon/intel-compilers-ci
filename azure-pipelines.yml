@@ -1,7 +1,5 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Test Pipeline for Azure Pipelines
+# Template for Linux
 
 trigger:
 - master
@@ -10,10 +8,20 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: sudo apt-get update -qq
+  displayName: 'Preinstall cleanup'
+
+- script: sudo apt-get install -y -qq cmake cpio g++ openssl wget
+  displayName: 'Install prerequisites'
+
+- script: sudo --preserve-env ./is-installers/linux/is-install.sh
+  displayName: 'Install compilers'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+     source ~/opt/intel/bin/iccvars.sh -arch intel64 &&
+     icc -v
+     mkdir build; cd build &&
+     FC=ifort CC=icc CXX=icpc cmake ../src
+     make
+     make test
+  displayName: 'Attempt compile'
